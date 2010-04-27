@@ -1,0 +1,35 @@
+name: vlifesystems.com
+files: /mnt/www/vlifesystems.com/contact_us.php
+files: /mnt/www/vlifesystems.com/sitestyle.css
+files: /mnt/www/vlifesystems.com/index.html
+basedir: /mnt/www/vlifesystems.com/
+webdir: 
+template: 
+word_wrap: 0
+colorlist: #FFF091
+colorlist: #FFF9D1
+colorlist: #FFF6BF
+colorlist: #FDFFBF
+colorlist: #632D0E
+colorlist: #8B6914
+recent_files: /mnt/www/vlifesystems.com/contact_us.php
+recent_files: /mnt/www/vlifesystems.com/sitestyle.css
+recent_files: /mnt/www/vlifesystems.com/index.html
+recent_files: /tmp/fr-jF4oOi/trustafriend_dump.sql
+recent_files: /tmp/fr-59HJqk/trustafriend_dump.sql
+recent_files: /tmp/fr-tIcuFu/trustafriend_dump.sql
+recent_files: /tmp/fr-aZfoP5/trustafriend_dump.sql
+recent_files: /tmp/fr-jBkgV6/trustafriend_dump.sql
+recent_files: /tmp/fr-feYdQt/trustafriend_dump.sql
+recent_files: /mnt/www/test.trustafriend.com/index.html
+recent_files: /mnt/www/test.trustafriend.com/tandc.html
+recent_files: /mnt/www/test.trustafriend.com/include/footer.html.inc
+recent_files: /mnt/www/test.trustafriend.com/handlers/contact_us.php
+recent_files: /mnt/www/vlifesystems.com/lib/validEmail.php
+recent_files: /mnt/www/vlifesystems.com/lib/libvalidateemail.php
+opendir: /mnt/www/vlifesystems.com
+savedir: /mnt/www/vlifesystems.com
+view_html_toolbar: 1
+view_custom_menu: 1
+view_main_toolbar: 1
+view_left_panel: 1
