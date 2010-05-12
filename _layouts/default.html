@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+	<head>
+		<title>{{ page.title }}</title>
+		<meta name="keywords" content="Software Development,Bespoke Software,Legacy Software,Legacy Systems">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="content-style-type" content="text/css"/>		
+		<meta name="author" content="Lawrence Woodman"/>
+		<meta name="description" content="vLife Systems"/>
+		
+		<link rel="stylesheet" href="/css/sitestyle.css" media="screen" type="text/css" />
+	</head>
+  
+	<body>
+		<div id="middleBorder">
+			<h1 id="pageTitle">vLife Systems Ltd</h1>
+<!--			<h2 id="pageSubTitle">The Jupiter Ace Emulator</h2> -->
+			
+			<!-- Menu Begin -->
+				<hr>
+				{% if page.menuOption == 'home' %}
+				<a class="menuItemSelected" href="/">Home</a>
+				{% else %}
+				<a class="menuItemUnselected" href="/">Home</a>
+				{% endif %}
+				
+				{% if page.menuOption == 'research' %}
+				<a class="menuItemSelected" href="/research">Research</a>
+				{% else %}
+				<a class="menuItemUnselected" href="/research">Research</a>
+				{% endif %}
+				
+				{% if page.menuOption == 'contact' %}
+				<a class="menuItemSelected" href="/contact.html">Contact</a>
+				{% else %}
+				<a class="menuItemUnselected" href="/contact.html">Contact</a>
+				{% endif %}
+				
+				<hr>
+			<!-- Menu End -->
+			
+			{{content}}
+			
+			
+		</div>
+	</body>
+</html>
