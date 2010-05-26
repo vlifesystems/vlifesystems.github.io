@@ -1,20 +1,19 @@
 body 
 {	
 	color: black; 
-	background: #E1E1FF; 
+	background: white;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	line-height: 150%;
 
-	margin-top: 1%;
-	margin-left: 10%; 
-	margin-right: 10%;
-
+	margin: 0;
 }
 
 h1#pageTitle
 {
-	text-align: center;
+	font-size: 300%;
+	padding-left: 1em;
+	text-align: left;
 }    
 
 h2#pageSubTitle
@@ -22,30 +21,48 @@ h2#pageSubTitle
 	text-align: center;
 	color: gray;
 	font-size: 100%;
+}
+
+h2#menu
+{
+	text-align: center;
+	padding-bottom:0;
 }    
 
 
-div#middleBorder 
+table#topBanner
 {
-	background: white;
-	border: 1px solid #A0A0A0;
-	padding: 1em;
-	margin-top: 0;
-	margin-left: 0;
-	margin-right: 0.5em;
-	margin-bottom: 1em;
-	text-align: left;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table#topBanner td#primary
+{
+	background: #BDD3EA;
+}
+
+table#topBanner td#secondary
+{
+	background: #336699;
+	border-top: solid 2px #6699CC;
+	border-bottom: solid 2px #6699CC;
 }
 
 
-div:hover#middleBorder 
-{ 
-	border: 1px #00074F solid; 
+table#pageTwoColumns td#menuColumn
+{
+	width: 6.5em;
+	background: #F5F5FF;
+	vertical-align: top;
+	border-collapse: collapse;
 }
+
+table#pageTwoColumns td#contentColumn
+{
+	padding-left: 2em;
+	vertical-align: top;
+}
+
 
 table.twoColumns td.leftColumn
 {
@@ -68,16 +85,15 @@ a.menuItemSelected
 {
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 150%;
-	padding-right: 1em;
-	color: blue;
+	padding-left: 1em;
+	color: orange;
 }
 
 a.menuItemUnselected
 {
 	font-weight: normal;
 	text-decoration: none;
-	padding-right: 1em;
+	padding-left: 1em;
 	color: blue;	
 }
 
@@ -86,3 +102,4 @@ a.menuItemUnselected
 p#registeredOffice {
 	color: #632D0E;
 }
+
