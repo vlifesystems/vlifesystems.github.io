@@ -14,24 +14,23 @@
 	</head>
   
 	<body>
-		<table id="topBanner">
-			<tr><td id="primary">
-				<h1 id="pageTitle">vLife Systems</h1>
+		<div id="page">
+			<table id="topBanner">
+				<tr><td id="primary">
+					<h1 id="pageTitle">vLife Systems</h1>
 			
-<!--			<h2 id="pageSubTitle">The Jupiter Ace Emulator</h2> -->
-			</td></tr>
+<!--			<h2 id="pageSubTitle">Quality Through Design</h2>	-->
+				</td></tr>
 			
-			<tr><td id="secondary">
-				<br />
-			</td></tr>
-		</table>
+				<tr><td id="secondary">
+					<br />
+				</td></tr>
+			</table>
 
-		<table id="pageTwoColumns">
-			<tr>
-				<td id="menuColumn">
+			<div id="sideBar">
 				<!-- Menu Begin -->
 					<h2 id="menu">Menu</h2>
-					<hr style="padding:0"/>
+					<hr style="padding:0;"/>
 					{% if page.menuOption == 'home' %}
 					<a class="menuItemSelected" href="/">Home</a>
 					{% else %}
@@ -50,13 +49,15 @@
 					<a class="menuItemUnselected" href="/contact.html">Contact</a>
 					{% endif %}
 					<br />
+					<br />
+					<br />
+					<br />
 				<!-- Menu End -->
-				</td>
+			</div>
 
-				<td id="contentColumn">
-					{{content}}
-				</td>
-			</tr>
-		</table>
+			<div id="content">
+				{{content}}
+			</div>
+		</div>
 	</body>
 </html>

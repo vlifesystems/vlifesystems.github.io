@@ -9,6 +9,14 @@ body
 	margin: 0;
 }
 
+div#page
+{
+	width: 100%;
+	padding:0;
+	margin:0;
+}
+
+
 h1#pageTitle
 {
 	font-size: 300%;
@@ -18,13 +26,15 @@ h1#pageTitle
 
 h2#pageSubTitle
 {
-	text-align: center;
+	text-align: left;
+	padding-left: 5em;
 	color: gray;
-	font-size: 100%;
+	font-size: 50%;
 }
 
 h2#menu
 {
+	font-size:120%;
 	text-align: center;
 	padding-bottom:0;
 }    
@@ -49,35 +59,22 @@ table#topBanner td#secondary
 }
 
 
-table#pageTwoColumns td#menuColumn
+
+div#sideBar
 {
-	width: 6.5em;
+	float: left;
+	width: 10%;
 	background: #F5F5FF;
+	margin-top:2px;
 	vertical-align: top;
-	border-collapse: collapse;
 }
 
-table#pageTwoColumns td#contentColumn
+div#content
 {
-	padding-left: 2em;
-	vertical-align: top;
+	float: right;
+	width: 89%;
+	margin-right:0;
 }
-
-
-table.twoColumns td.leftColumn
-{
-	width: 50%;
-	padding-right:2em;
-	vertical-align: top;
-}
-
-table.twoColumns td.rightColumn
-{
-	width: 50%;
-	padding-left: 2em;
-	vertical-align: top;
-}
-
 
 
 /* Menu items */
@@ -97,9 +94,20 @@ a.menuItemUnselected
 	color: blue;	
 }
 
-
-
 p#registeredOffice {
 	color: #632D0E;
 }
 
+
+
+table.twoColumns
+{
+	width: 100%;
+}
+
+table.twoColumns td
+{
+	width: 48%;
+	padding-right:1em;
+	vertical-align:top;
+}
