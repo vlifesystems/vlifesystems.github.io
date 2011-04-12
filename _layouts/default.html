@@ -14,50 +14,35 @@
 	</head>
   
 	<body>
-		<div id="page">
-			<table id="topBanner">
-				<tr><td id="primary">
-					<h1 id="pageTitle">vLife Systems</h1>
-			
-<!--			<h2 id="pageSubTitle">Quality Through Design</h2>	-->
-				</td></tr>
-			
-				<tr><td id="secondary">
-					<br />
-				</td></tr>
-			</table>
+		<h1 id="pageTitle">vLife Systems</h1>
+		<h2 id="pageSubTitle">Quality Through Design</h2>
+		<div id="topMenu">
+		<!-- Menu Begin -->
+			&nbsp;
+			{% if page.menuOption == 'home' %}
+			<a class="menuItemSelected" href="/">Home</a>
+			{% else %}
+			<a class="menuItemUnselected" href="/">Home</a>
+			{% endif %}
+			&nbsp; | &nbsp;
+			{% if page.menuOption == 'projects' %}
+			<a class="menuItemSelected" href="/projects">Projects</a>
+			{% else %}
+			<a class="menuItemUnselected" href="/projects">Projects</a>
+			{% endif %}
+			&nbsp; | &nbsp;
+			{% if page.menuOption == 'statInfo' %}
+			<a class="menuItemSelected" href="/statinfo.html">Statutory Information</a>
+			{% endif %}
+		<!-- Menu End -->
+		</div>
 
-			<div id="sideBar">
-				<!-- Menu Begin -->
-					<h2 id="menu">Menu</h2>
-					<hr style="padding:0;"/>
-					{% if page.menuOption == 'home' %}
-					<a class="menuItemSelected" href="/">Home</a>
-					{% else %}
-					<a class="menuItemUnselected" href="/">Home</a>
-					{% endif %}
-					<br />
-					{% if page.menuOption == 'research' %}
-					<a class="menuItemSelected" href="/research">Research</a>
-					{% else %}
-					<a class="menuItemUnselected" href="/research">Research</a>
-					{% endif %}
-					<br />
-					{% if page.menuOption == 'contact' %}
-					<a class="menuItemSelected" href="/contact.html">Contact</a>
-					{% else %}
-					<a class="menuItemUnselected" href="/contact.html">Contact</a>
-					{% endif %}
-					<br />
-					<br />
-					<br />
-					<br />
-				<!-- Menu End -->
-			</div>
+		{{content}}
 
-			<div id="content">
-				{{content}}
-			</div>
+		<div id="footer">
+			<strong>Email:</strong> <a href="mailto:info@vlifesystems.com">info@vlifesystems.com</a>
+			|
+			<a href="/statinfo.html">Statutory Information</a>
 		</div>
 	</body>
 </html>

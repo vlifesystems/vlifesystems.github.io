@@ -6,108 +6,70 @@ body
 	font-weight: normal;
 	line-height: 150%;
 
-	margin: 0;
+	margin-top: 0;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0;
+	padding: 0;
 }
-
-div#page
-{
-	width: 100%;
-	padding:0;
-	margin:0;
-}
-
 
 h1#pageTitle
 {
 	font-size: 300%;
-	padding-left: 11%;
+	padding: 0;
 	text-align: left;
+	margin-bottom: 0;
 }    
 
 h2#pageSubTitle
 {
 	text-align: left;
-	padding-left: 5em;
+	padding-left: 1%;
 	color: gray;
-	font-size: 50%;
-}
-
-h2#menu
-{
-	font-size:120%;
-	text-align: center;
-	padding-bottom:0;
-}    
-
-
-table#topBanner
-{
-	width: 100%;
-	border-collapse: collapse;
-}
-
-table#topBanner td#primary
-{
-	background: #BDD3EA;
-}
-
-table#topBanner td#secondary
-{
-	background: #336699;
-	border-top: solid 2px #6699CC;
-	border-bottom: solid 2px #6699CC;
+	font-size: 100%;
 }
 
 
-
-div#sideBar
-{
-	float: left;
-	width: 10%;
-	background: #F5F5FF;
-	margin-top:2px;
-	vertical-align: top;
+/* Menu */
+div#topMenu {
+	border-top: 1px gray solid;
+	border-bottom: 1px gray solid;
 }
 
-div#content
-{
-	float: right;
-	width: 89%;
-	margin-right:0;
-}
-
-
-/* Menu items */
 a.menuItemSelected
 {
 	font-weight: bold;
 	text-decoration: none;
-	padding-left: 1em;
-	color: orange;
+	color: blue;
 }
 
 a.menuItemUnselected
 {
 	font-weight: normal;
 	text-decoration: none;
-	padding-left: 1em;
 	color: blue;	
+}
+
+/* General page layout */
+div.leftColumn {
+	float: left;
+	width: 48%;
+	padding-right: 1em;
+}
+
+div.rightColumn {
+	float: left;
+	width: 50%;
+	padding: 0;
+}
+
+div#footer {
+	clear: left;
+	text-align: center;
+	border-top: 1px gray solid;
+	border-bottom: 1px gray solid;
 }
 
 p#registeredOffice {
 	color: #632D0E;
-}
-
-
-
-table.twoColumns
-{
-	width: 100%;
-}
-
-table.twoColumns td
-{
-	width: 48%;
-	padding-right:1em;
-	vertical-align:top;
 }
