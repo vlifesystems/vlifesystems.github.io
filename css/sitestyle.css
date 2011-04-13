@@ -5,21 +5,19 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	line-height: 150%;
-
-	margin-top: 0;
+	margin-top: 1.5em;
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-bottom: 0;
-	padding: 0;
 }
 
 h1#pageTitle
 {
 	font-size: 300%;
-	padding: 0;
 	text-align: left;
 	margin-bottom: 0;
 }    
+
 
 h2#pageSubTitle
 {
@@ -27,6 +25,7 @@ h2#pageSubTitle
 	padding-left: 1%;
 	color: gray;
 	font-size: 100%;
+	margin-bottom: 0;
 }
 
 
@@ -34,6 +33,9 @@ h2#pageSubTitle
 div#topMenu {
 	border-top: 1px gray solid;
 	border-bottom: 1px gray solid;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 a.menuItemSelected
@@ -50,16 +52,30 @@ a.menuItemUnselected
 	color: blue;	
 }
 
+
 /* General page layout */
+div#content {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+
+div#content h2 {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
 div.leftColumn {
 	float: left;
 	width: 48%;
+	margin: 0;
+	padding-top: 0;
 	padding-right: 1em;
 }
 
 div.rightColumn {
 	float: left;
 	width: 50%;
+	margin: 0;
 	padding: 0;
 }
 
