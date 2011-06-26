@@ -1,93 +1,94 @@
 body 
-{	
-	color: black; 
-	background: white;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: normal;
-	margin-top: 1.5em;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-bottom: 0;
+{
+  color: black;
+  background: white;
+  font-family: corbel, 'lucida grande', helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 0;
 }
 
 h1#pageTitle
 {
-	font-size: 300%;
-	text-align: left;
-	margin-bottom: 0;
+  font-size: 300%;
+  text-align: left;
+  margin-bottom: 0;
 }    
 
 
 h2#pageSubTitle
 {
-	text-align: left;
-	padding-left: 1%;
-	color: gray;
-	font-size: 100%;
-	margin-top: 0;
-	margin-bottom: 0;
+  text-align: left;
+  padding-left: 1%;
+  color: gray;
+  font-size: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 
 /* Menu */
 div#topMenu {
-	border-top: 1px gray solid;
-	border-bottom: 1px gray solid;
-	margin-top: 0.5em;
-	margin-bottom: 0;
-	padding-bottom: 0;
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 a.menuItemSelected
 {
-	font-weight: bold;
-	text-decoration: none;
-	color: blue;
+  font-weight: bold;
+  text-decoration: none;
+  color: blue;
 }
 
 a.menuItemUnselected
 {
-	font-weight: normal;
-	text-decoration: none;
-	color: blue;	
+  font-weight: normal;
+  text-decoration: none;
+  color: blue;
 }
 
 
 /* General page layout */
 div#content {
-	line-height: 150%;
-	margin-bottom: 1em;
-	padding-bottom: 1em;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 div#content h2,h3 {
-	margin-top: 1em;
-	margin-bottom: 0;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 div.leftColumn {
-	float: left;
-	width: 48%;
-	margin: 0;
-	padding-top: 0;
-	padding-right: 1em;
-	padding-bottom: 1em;
+  float: left;
+  width: 48%;
+  margin: 0;
+  padding-top: 0;
+  padding-right: 1em;
+  padding-bottom: 1em;
 }
 
 div.rightColumn {
-	float: left;
-	width: 50%;
-	margin: 0;
-	padding: 0;
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
 }
 
 div#footer {
-	clear: left;
-	text-align: center;
-	border-top: 1px gray solid;
-	border-bottom: 1px gray solid;
+  clear: left;
+  text-align: center;
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
 }
 
 p#registeredOffice {
-	color: #632D0E;
+  color: #632D0E;
 }
