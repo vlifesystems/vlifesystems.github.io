@@ -29,6 +29,11 @@ h2#pageSubTitle
   margin-bottom: 0;
 }
 
+h3 small {
+  color: gray;
+  font-size: 80%;
+}
+
 
 /* Menu */
 div#topMenu {
@@ -71,13 +76,13 @@ div.leftColumn {
   width: 48%;
   margin: 0;
   padding-top: 0;
-  padding-right: 1em;
+  padding-right: 2em;
   padding-bottom: 1em;
 }
 
 div.rightColumn {
   float: left;
-  width: 50%;
+  width: 48%;
   margin: 0;
   padding: 0;
 }
