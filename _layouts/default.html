@@ -36,6 +36,22 @@
       &gt; <a class="menuItemSelected" href="{{ page.projectLink }}">{{page.project}}</a>
       {% endif %}
 			&nbsp; | &nbsp;
+
+			{% if page.menuOption == 'articles' %}
+			<a class="menuItemSelected" href="/articles">Articles</a>
+			{% else %}
+			<a class="menuItemUnselected" href="/articles">Articles</a>
+			{% endif %}
+
+      {% if page.menuOption == 'taggedArticles' %}
+      &gt; <a class="menuItemSelected" href="{{ page.tag|tag_dir }}">{{page.tag}}</a>
+      {% endif %}
+			&nbsp; | &nbsp;
+
+			{% if page.menuOption == 'profile' %}
+			<a class="menuItemSelected" href=".">Profile</a>
+			{% endif %}
+
 			{% if page.menuOption == 'statInfo' %}
 			<a class="menuItemSelected" href="/statinfo.html">Statutory Information</a>
 			{% endif %}

@@ -3,7 +3,7 @@ lsi:         false
 port:        4000
 highlighter:    pygments
 markdown:    Kramdown
-permalink:   date
+permalink:   /articles/:year/:month/:day/:title
 maruku:
   use_tex:    false
   use_divs:   false

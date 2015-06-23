@@ -1,0 +1,20 @@
+---
+layout: article
+title: "Tarcel v0.1 Released"
+tags:
+  - Tarcel
+author:
+  name: Lawrence Woodman
+  url: /profile/lawrencewoodman/
+---
+Tarcel allows you to combine a number of files together to create a single tarcel file that can be run by tclsh, wish, or can be sourced into another Tcl script.  This makes it easy to distribute your applications as a single file.  In addition it allows you to easily create Tcl modules made up of several files including shared libraries, and then take advantage of the extra benefits that Tcl modules provide such as faster loading time.
+
+#### Find out More ####
+To find out more have a look at the [Tarcel Project](/projects/tarcel/) page and the following articles:<br />
+  <ul id="briefPosts">
+    {% for post in site.posts %}
+      {% if post.tags contains 'Tarcel' and post != page %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>

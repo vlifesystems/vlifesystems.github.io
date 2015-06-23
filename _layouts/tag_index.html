@@ -1,0 +1,25 @@
+---
+layout: default
+menuOption: taggedArticles
+---
+
+<div class="leftColumn23rd">
+  <ul id="posts">
+    {% for post in site.posts %}
+      {% if post.tags contains page.tag %}
+        <li>{% include post_summary.html %}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
+
+<div class="rightColumn3rd">
+  <h3>Latest Articles</h3>
+  <ul class="briefPosts">
+    {% for post in site.posts limit: 5 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+</div>

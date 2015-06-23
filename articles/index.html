@@ -1,0 +1,19 @@
+---
+layout: default
+title: vLife Systems Articles
+menuOption: articles
+---
+
+<div class="rightColumn">
+</div>
+
+<div class="leftColumn gap">
+  <ul id="posts">
+    {% for post in site.posts limit: 15 %}
+      <li>
+        {% include post_summary.html %}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
