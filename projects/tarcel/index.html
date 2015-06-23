@@ -1,0 +1,196 @@
+---
+layout: default
+title: tarcel - A Tcl packaging tool
+menuOption: projects
+project: Tarcel
+projectLink: /projects/tarcel
+---
+
+<div class="leftColumn23rd">
+
+  <h3>Tarcel <small>A Tcl Packaging Tool</small></h3>
+  Tarcel allows you to combine a number of files together to create a single tarcel file that can be run by tclsh, wish, or can be sourced into another Tcl script. This makes it easy to distribute your applications as a single file. In addition it allows you to easily create Tcl modules made up of several files including shared libraries, and then take advantage of the extra benefits that Tcl modules provide such as faster loading time.
+
+
+  <h3>Definition of Terms</h3>
+  <dl>
+    <dt>tarcel</dt>
+    <dd>A file that has been packaged with the tarcel script.  This is pronounced to rhyme with parcel.</dd>
+    <dt>.tarcel</dt>
+    <dd>The file that describes how to create the <em>tarcel</em> file.  Pronounced 'dot tarcel'.</dd>
+    <dt>tarcel.tcl</dt>
+    <dd>The packaging tool script.</dd>
+  </dl>
+
+  <h3>Usage</h3>
+  Tarcel is quite easy to use and implements just enough functionality to work for the tasks it has been put to so far.
+
+  <h4>Creating a package</h4>
+  To create a <em>tarcel</em> file you begin by creating a <em>.tarcel</em> file to describe how to package the <em>tarcel</em> file.  See below for what to put in this file.  You then use the <em>wrap</em> command of <em>tarcel.tcl</em> to create the package.
+
+  To create a <em>tarcel</em> called <em>t.tcl</em> out of <em>tarcel.tcl</em> and its associated files using <em>tarcel.tarcel</em> run:
+
+  {% highlight bash %}
+  $ tclsh tarcel.tcl wrap -o t.tcl tarcel.tarcel
+  {% endhighlight %}
+
+  The <em>.tarcel</em> file may specifiy the output filename, in which case you don't need to supply <code>-o outputFilename</code>.
+
+  <h4>Getting Information About a Package</h4>
+  To find out some information about a package use the <em>info</em> command of <em>tarcel.tcl</em>.  For the example above, to look at <em>t.tcl</em> run:
+
+  {% highlight bash %}
+  $ tclsh tarcel.tcl info t.tcl
+  {% endhighlight %}
+
+  This will output something like the following:
+
+  <pre><code>  Information for tarcel: t.tcl
+  Created with tarcel.tcl version: 0.1
+
+    Homepage: https://github.com/LawrenceWoodman/tarcel
+    Version: 0.1
+    Files:
+      tarcel-0.1.vfs/app/lib/commands.tcl
+      tarcel-0.1.vfs/app/lib/compiler.tcl
+      tarcel-0.1.vfs/app/lib/config.tcl
+      tarcel-0.1.vfs/app/lib/embeddedchan.tcl
+      tarcel-0.1.vfs/app/lib/parameters.tcl
+      tarcel-0.1.vfs/app/lib/tar.tcl
+      tarcel-0.1.vfs/app/lib/tararchive.tcl
+      tarcel-0.1.vfs/app/lib/tvfs.tcl
+      tarcel-0.1.vfs/app/lib/xplatform.tcl
+      tarcel-0.1.vfs/app/tarcel.tcl
+      tarcel-0.1.vfs/modules/configurator-0.1.tm
+  </code></pre>
+
+
+  <h4>Defining a .tarcel File</h4>
+  To begin with it is worth looking at the <em>tarcel.tarcel</em> file supplied in the repo.  This <em>.tarcel</em> file is used to wrap <em>tarcel.tcl</em>.
+
+  A <em>.tarcel</em> file is a Tcl script which has the following Tcl commands available to it:
+
+  <ul>
+    <li><code>file</code> (only supports subcommands: <code>dirname</code>, <code>join</code> and <code>tail</code>)</li>
+    <li><code>foreach</code></li>
+    <li><code>glob</code></li>
+    <li><code>if</code></li>
+    <li><code>lassign</code></li>
+    <li><code>list</code></li>
+    <li><code>llength</code></li>
+    <li><code>lsort</code></li>
+    <li><code>regexp</code></li>
+    <li><code>regsub</code></li>
+    <li><code>set</code></li>
+    <li><code>string</code></li>
+  </ul>
+
+  In addition it has the following commands to control packaging:
+  <dl>
+    <dt><code>config set varName value</code></dt>
+    <dd>Sets variables such as <em>version</em>, <em>homepage</em> and <em>init</em>.  The latter is used to set the initialization code for the package to load the rest of the code.</dd>
+
+    <dt><code>error msg</code></dt>
+    <dd>Quit processing a <em>.tarcel</em> with an error message.</dd>
+
+    <dt><code>fetch importPoint files</code></dt>
+    <dd>Gets the specified <em>files</em> and places them all at the directory specified by <em>importPoint</em> in the package.  The relative directory structure of the files will not be preserved.</dd>
+
+    <dt><code>import importPoint files</code></dt>
+    <dd>Gets the specified <em>files</em> and places them at the directory specified by <em>importPoint</em> in the package relative to their original directory structure.</dd>
+
+    <dt><code>find module [requirement] ...</code></dt>
+    <dd>Find the location of a Tcl module.  You can also specify the version requirements for the module.</dd>
+
+    <dt><code>get packageLoadCommands packageName</code></dt>
+    <dd>Returns the commands to load the package from <code>package ifneeded</code>.</dd>
+
+    <dt><code>tarcel destination .tarcelFile [arg] ...</code></dt>
+    <dd>Use the <em>.tarcelFile</em> file to package some other code and include the resulting <em>tarcel</em> file at destination in the calling <em>tarcel</em> file.  If you pass any further arguments, then the Tcl variable <code>args</code> will be set with these.</dd>
+  </dl>
+
+  <h4>Example: tarcel.tarcel</h4>
+  Using the supplied <em>tarcel.tarcel</em> file in the <a href="https://github.com/LawrenceWoodman/tarcel">repo</a> as an example.  We first define the files that make up the utility:
+
+{% highlight tcl %}
+set appFiles [list \
+  tarcel.tcl \
+  [file join lib commands.tcl] \
+  [file join lib parameters.tcl] \
+  [file join lib xplatform.tcl] \
+  [file join lib config.tcl] \
+  [file join lib compiler.tcl] \
+  [file join lib tvfs.tcl] \
+  [file join lib tar.tcl] \
+  [file join lib tararchive.tcl] \
+  [file join lib embeddedchan.tcl]
+]
+{% endhighlight %}
+
+  Then define the modules it requires.  In this case it needs the <code>configurator</code> module and uses <code>find module</code> to locate it.
+
+{% highlight tcl %}
+set modules [list \
+  [find module configurator]
+]
+{% endhighlight %}
+
+  We set <code>version</code> and <code>baseDir</code> for use later in the script.  <code>baseDir</code> will be the root of the <em>tarcel</em> to which all other files in the <em>tarcel</em> will be relative to.
+
+{% highlight tcl %}
+set version 0.1
+set baseDir tarcel-$version.vfs
+{% endhighlight %}
+
+  Now we can import the files defined above for the utility and put them in the <code>app</code> directory off of <code>$baseDir</code> while keeping their relative directory structure.
+
+{% highlight tcl %}
+import [file join $baseDir app] $appFiles
+{% endhighlight %}
+
+  And fetch the modules defined above and place them directly in the <code>modules</code> directory off of <code>$baseDir</code> without keeping any relative directory structure.
+
+{% highlight tcl %}
+fetch [file join $baseDir modules] $modules
+{% endhighlight %}
+
+  We'll set the <code>version</code> and <code>homepage</code> within the config to provide useful information via the <code>info</code> command of <code>tarcel.tcl</code>.
+
+{% highlight tcl %}
+config set version $version
+config set homepage "https://github.com/LawrenceWoodman/tarcel"
+{% endhighlight %}
+
+  Finally we set the script which will start the application.  Note that it adds the modules directory to the list of paths that are searched for modules.
+
+{% highlight tcl %}
+set initScript {
+  ::tcl::tm::path add [file join @baseDir modules]
+  source [file join @baseDir app tarcel.tcl]
+}
+
+config set init [string map [list @baseDir $baseDir] $initScript]
+{% endhighlight %}
+</div>
+
+<div class="rightColumn3rd">
+
+  <h3>Downloads</h3>
+  <a href="/downloads/tarcel_v0.1.zip">Tarcel.tcl v0.1 packaged as a tarcel</a>
+
+  <div id="news">
+    <h3>News</h3>
+    <h4>Tarcel v0.1 Released</h4>
+    <span class="date">19th June 2015</span>
+    This is the first release of Tarcel.  It has most of the basic functionality that is needed to fulfill our aims for the tool.
+  </div>
+
+
+  <h3>Contributions</h3>
+If you want to improve this program make a pull request to the <a href="https://github.com/LawrenceWoodman/tarcel">repo</a> on github. Please put any pull requests in a separate branch to ease integration and add a test to prove that it works. If you find a bug, please report it at the Tarcel project's <a href="https://github.com/LawrenceWoodman/tarcel/issues">issues tracker</a> also on github.
+
+  <h3>Licence</h3>
+  Copyright (C) 2015, Lawrence Woodman <a href="mailto:lwoodman@vlifesystems.com">lwoodman@vlifesystems.com</a><br />
+
+  This software is licensed under an MIT Licence.  Please see the file, <a href="https://github.com/LawrenceWoodman/tarcel/blob/master/LICENCE.md">LICENCE.md</a>, for details.
+</div>

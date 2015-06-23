@@ -34,6 +34,22 @@ h3 small {
   font-size: 80%;
 }
 
+h3 a {
+  text-decoration: none;
+}
+
+h3 a:visited {
+  color: black;
+}
+
+h3 a:visited small {
+  color: gray;
+}
+
+h3 a:hover {
+  text-decoration: underline;
+}
+
 
 /* Menu */
 div#topMenu {
@@ -66,9 +82,17 @@ div#content {
   padding-bottom: 1em;
 }
 
-div#content h2,h3 {
+div#content h2,h3,h4 {
   margin-top: 1em;
   margin-bottom: 0;
+}
+
+div#news {
+}
+
+div#news span.date {
+  color: #606060;
+  font-size: 80%;
 }
 
 div.leftColumn {
@@ -87,11 +111,31 @@ div.rightColumn {
   padding: 0;
 }
 
+
+div.leftColumn23rd {
+  float: left;
+  width: 58%;
+  margin: 0;
+  padding-top: 0;
+  padding-right: 2em;
+  padding-bottom: 1em;
+}
+
+
+div.rightColumn3rd {
+  float: left;
+  width: 38%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1em;
+}
+
 div#footer {
   clear: left;
   text-align: center;
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
+  margin-bottom: 1em;
 }
 
 p#registeredOffice {

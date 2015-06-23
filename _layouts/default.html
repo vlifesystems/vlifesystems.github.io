@@ -11,6 +11,7 @@
 		<meta name="description" content="vLife Systems"/>
 		
 		<link rel="stylesheet" href="/css/sitestyle.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="/css/html_pygments.css" media="screen" type="text/css" />
 	</head>
   
 	<body>
@@ -25,11 +26,15 @@
 			<a class="menuItemUnselected" href="/">Home</a>
 			{% endif %}
 			&nbsp; | &nbsp;
-			{% if page.menuOption == 'projects' %}
+			{% if page.menuOption == 'projects' and page.project == null %}
 			<a class="menuItemSelected" href="/projects">Projects</a>
 			{% else %}
 			<a class="menuItemUnselected" href="/projects">Projects</a>
 			{% endif %}
+
+      {% if page.project and page.projectLink %}
+      &gt; <a class="menuItemSelected" href="{{ page.projectLink }}">{{page.project}}</a>
+      {% endif %}
 			&nbsp; | &nbsp;
 			{% if page.menuOption == 'statInfo' %}
 			<a class="menuItemSelected" href="/statinfo.html">Statutory Information</a>
