@@ -109,6 +109,15 @@ projectLink: /projects/tarcel
     <dd>Use the <em>.tarcelFile</em> file to package some other code and include the resulting <em>tarcel</em> file at destination in the calling <em>tarcel</em> file.  If you pass any further arguments, then the Tcl variable <code>args</code> will be set with these.</dd>
   </dl>
 
+  <h3>Find out More</h3>
+To find out more have a look at the the following articles:<br />
+  <ul id="briefPosts">
+    {% for post in site.posts %}
+      {% if post.tags contains 'Tarcel' and post != page %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </div>
 
 <div class="rightColumn3rd">

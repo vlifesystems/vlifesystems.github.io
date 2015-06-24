@@ -122,3 +122,14 @@ Finally you can now run the test and see that it treats the module just as if it
 {% highlight bash %}
 $ tclsh translator.test.tcl
 {% endhighlight %}
+
+
+#### Find out More ####
+To find out more have a look at the [Tarcel Project](/projects/tarcel/) page and the following articles:<br />
+  <ul id="briefPosts">
+    {% for post in site.posts %}
+      {% if post.tags contains 'Tarcel' and post != page %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
