@@ -180,3 +180,7 @@ table#profileTable th {
 }
 
 div#profileText { margin-top: 1em; }
+
+pre {
+  background: #EAEAE2;
+}
