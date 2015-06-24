@@ -11,6 +11,10 @@ body
   margin-bottom: 0;
 }
 
+a { text-decoration: none; }
+a:visited { color: #4000a0; }
+a:hover { text-decoration: underline; }
+
 h1#pageTitle
 {
   font-size: 300%;
@@ -29,12 +33,13 @@ h2#pageSubTitle
   margin-bottom: 0;
 }
 
-h3 small {
+h2 small,h3 small {
   color: gray;
   font-size: 80%;
 }
 
 h3 a {
+  color: black;
   text-decoration: none;
 }
 
