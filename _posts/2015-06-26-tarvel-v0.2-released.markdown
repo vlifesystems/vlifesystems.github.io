@@ -1,0 +1,61 @@
+---
+layout: article
+title: "Tarcel v0.2 Released"
+tags:
+  - Tarcel
+author:
+  name: Lawrence Woodman
+  url: /profile/lawrencewoodman/
+---
+This is a minor update that makes two main changes: i) A comment header is now added to the start of a _tarcel_ to state that it is a tarcel and what version of Tarcel it was created with.  ii) Within a _.tarcel_ file you can now add a version requirement to `get packageLoadCommands`.
+
+#### The Comment Header ####
+The new header at the start of a _tarcel_ looks like the following:
+
+    #########################################################
+    # This file is a tarcel created by Tarcel v0.2
+    # To find out more about Tarcel go to the project page:
+    #   http://vlifesystems.com/projects/tarcel/
+    #########################################################
+
+#### Version Requirements for `get packageLoadCommands` ####
+The new usage for the `get packageLoadCommands` is:
+
+<dl>
+  <dt><code>get packageLoadCommands packageName [requirement] ...</code></dt>
+  <dd>Returns the commands to load the package from <code>package ifneeded</code>. The result is returned as a two element list, the first element contains the load commands and the second element contains the version found.</dd>
+</dl>
+
+This allows you to create a _.tarcel_ like the following to package the latest version of Tclx as a module, which is between v8.3 and v8.5:
+
+{% highlight tcl %}
+set loadCommands [get packageLoadCommands Tclx 8.3-8.5]
+lassign $loadCommands loadCommand version
+set outputFilename "Tclx-$version.tm"
+set baseDir "Tclx-$version.vfs"
+
+
+if {[regexp {^load[^;]+$} $loadCommand]} {
+  set libFilename [regsub {^(load\s+)(.*?) (.*?)$} $loadCommand {\2}]
+  set libDirname [file dirname $libFilename]
+  set tclxFilenames [glob -tails -directory $libDirname *.so *.tcl]
+
+  foreach filename $tclxFilenames {
+    fetch $baseDir \
+          [file join $libDirname $filename]
+  }
+} else {
+  error "Can't find package: Tclx"
+}
+
+set initScript {
+  lappend auto_path @outputFilename
+  load [file join @baseDir @libTailFilename] Tclx
+}
+
+config set init [string map [list @baseDir $baseDir \
+                                  @libTailFilename [file tail $libFilename]] \
+                            $initScript]
+
+config set outputFilename $outputFilename
+{% endhighlight %}
