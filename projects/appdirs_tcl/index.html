@@ -1,0 +1,107 @@
+---
+layout: default
+title: AppDirs - A Tcl Module to Simplify Cross-platform Application File Locations
+menuOption: projects
+project: AppDirs
+projectLink: /projects/appdirs_tcl
+---
+
+<div class="leftColumn23rd">
+
+  <h2>AppDirs <small>A Tcl Module to Simplify Cross-platform Application File Locations</small></h2>
+  An application that is installed on a variety of platforms will use different locations on each platform to access files.  This module aims to provide access to these locations through a common interface.  For each operating system the module aims to use an appropriate standard for the locations, for example on Linux the <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specification</a> is used and on Microsoft Windows or Darwin/Mac OS X the most common locations for each version of the operating system is used.
+
+  <h3>Module Usage</h3>
+  First create an instance of the <code>AppDirs</code> class by instantiating it with a <em>brand</em> and <em>applicationName</em>.  The <em>brand</em> may be ignored depending on the platform that is being used.  You can then call the methods on this instance as follows:
+
+{% highlight tcl %}
+package require AppDirs
+
+set myAppDirs [AppDirs new myBrand myApp]
+
+# Return location of user-specific data files
+puts "data home: [$myAppDirs dataHome]"
+
+# Return location of user-specific configuration files
+puts "config home: [$myAppDirs configHome]"
+
+# Return a list of locations for system-wide configuration files in preference order
+puts "data dirs: [$myAppDirs dataDirs]"
+
+# Return a list of locations for system-wide data files in preference order
+puts "config dirs: [$myAppDirs configDirs]"
+{% endhighlight %}
+
+
+<h3>Default Directories</h3>
+To list the default directories for various platforms and to see the directories being used for the current system run:
+
+{% highlight bash %}
+$ tclsh bin/listdirs.tcl
+{% endhighlight %}
+
+
+<h3>Installation</h3>
+To install the module you can use the <a href="https://github.com/LawrenceWoodman/installmodule_tcl">installmodule.tcl</a> script or if you want to manually copy the file </em>AppDirs-*.tm</em> to a specific location that Tcl expects to find modules.  This would typically be something like:
+
+<pre><code>/usr/share/tcltk/tcl8.5/tcl8/</code></pre>
+
+To find out what directories are searched for modules, start <code>tclsh</code> and enter:
+
+{% highlight tcl %}
+foreach dir [split [::tcl::tm::path list]] {puts $dir}
+{% endhighlight %}
+
+or from the command line:
+
+{% highlight bash %}
+$ echo "foreach dir [split [::tcl::tm::path list]] {puts \$dir}" | tclsh
+{% endhighlight %}
+
+  <h3>Find out More</h3>
+To find out more have a look at the following articles:<br />
+  <ul id="briefPosts">
+    {% for post in site.posts %}
+      {% if post.tags contains "AppDirs_tcl" and post != page %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="rightColumn3rd">
+
+  <h3>Downloads</h3>
+  <a href="https://github.com/LawrenceWoodman/appdirs_tcl/releases/tag/v0.2">AppDirs v0.2</a>
+
+  <div id="news">
+    <h3>Articles</h3>
+    <ul class="briefPosts">
+      {% assign numFound = 0 %}
+      {% for post in site.posts %}
+        {% if post.tags contains "AppDirs_tcl" %}
+          {% assign numFound = numFound | plus: 1 %}
+          {% if numFound <= 5 %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>Tcl 8.5+</li>
+    <li><a href="http://core.tcl.tk/tcllib/home">Tcllib</a>
+    <li><a href="http://core.tcl.tk/tcloo/wiki?name=TclOO+Package">TclOO</a> (Included as part of the core distribution from Tcl 8.6)
+    <li><a href="https://github.com/LawrenceWoodman/xdgbasedir_tcl">xdgbasedir</a> module
+  </ul>
+
+  <h3>Contributions</h3>
+If you want to improve this program make a pull request to the <a href="https://github.com/LawrenceWoodman/appdirs_tcl">repo</a> on github. Please put any pull requests in a separate branch to ease integration and add a test to prove that it works. If you find a bug, please report it at the AppDirs_tcl project's <a href="https://github.com/LawrenceWoodman/appdirs_tcl/issues">issues tracker</a> also on github.
+
+  <h3>Licence</h3>
+  Copyright (C) 2013-2015, Lawrence Woodman <a href="mailto:lwoodman@vlifesystems.com">lwoodman@vlifesystems.com</a><br />
+
+  This software is licensed under an MIT Licence.  Please see the file, <a href="https://github.com/LawrenceWoodman/appdirs_tcl/blob/master/LICENCE.md">LICENCE.md</a>, for details.
+</div>
