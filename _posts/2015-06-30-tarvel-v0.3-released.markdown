@@ -1,0 +1,67 @@
+---
+layout: article
+title: "Tarcel v0.3 Released"
+tags:
+  - Tarcel
+author:
+  name: Lawrence Woodman
+  url: /profile/lawrencewoodman/
+---
+This release makes the utility much nicer to use by reducing the size of <em>tarcel</em>s and improving the error reporting from _tarcel.tarcel_.  It also corrects a bug that meant that the `args` variable couldn't be used as effectively as possible within a _.tarcel_ called using the `tarcel` command from within another _.tarcel_.  Finally this release adds support for specifying a [hashbang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line.
+
+#### Proper Handling of `args` Variable ####
+You can now use the `args` variable within a _.tarcel_ without having to worry if it isn't passed as in this case it will be an empty list.  This allows you to create a _.tarcel_ such as the following, adapted from a previous article, to package the Tclx module:
+
+{% highlight tcl %}
+set loadCommands [get packageLoadCommands Tclx {*}$args]
+lassign $loadCommands loadCommand version
+set outputFilename "Tclx-$version.tm"
+set baseDir "Tclx-$version.vfs"
+set filesLibDir [file join $baseDir tclx$version]
+
+
+if {[regexp {^load[^;]+$} $loadCommand]} {
+  set libFilename [regsub {^(load\s+)(.*?) (.*?)$} $loadCommand {\2}]
+  set libDirname [file dirname $libFilename]
+  set tclxFilenames [glob -tails -directory $libDirname *.so *.tcl]
+
+  foreach filename $tclxFilenames {
+    fetch $filesLibDir \
+          [file join $libDirname $filename]
+  }
+} else {
+  error "Can't find package: Tclx"
+}
+
+set initScript {
+  lappend auto_path [file normalize @baseDir]
+  load [file join @filesLibDir @libTailFilename] Tclx
+}
+
+config set init [string map [list @baseDir $baseDir \
+                                  @filesLibDir $filesLibDir \
+                                  @libTailFilename [file tail $libFilename]] \
+                            $initScript]
+
+config set outputFilename $outputFilename
+{% endhighlight %}
+
+
+From the calling _.tarcel_ you can choose to restrict the version numbers of Tclx:
+
+{% highlight tcl %}
+tarcel modules [file join tarcels tclx.tarcel 8.3-8.5]
+{% endhighlight %}
+
+or you can call it without specifying the version requirements and it will use the latest:
+
+{% highlight tcl %}
+tarcel modules [file join tarcels tclx.tarcel]
+{% endhighlight %}
+
+#### Adding a Hashbang Line ####
+So that you can make a script executable within Unix you can now specify a hashbang line within an applications _.tarcel_:
+
+{% highlight tcl %}
+config set hashbang "/usr/bin/env tclsh"
+{% endhighlight %}
