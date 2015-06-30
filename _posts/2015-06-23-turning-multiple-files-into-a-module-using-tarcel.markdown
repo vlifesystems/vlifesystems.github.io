@@ -124,7 +124,7 @@ $ tclsh translator.test.tcl
 {% endhighlight %}
 
 
-#### Find out More ####
+### Find out More ###
 To find out more have a look at the [Tarcel Project](/projects/tarcel/) page and the following articles:<br />
   <ul id="briefPosts">
     {% for post in site.posts %}

@@ -105,7 +105,7 @@ Which will give something like the following:
         tarcel-0.1.vfs/app/tarcel.tcl
         tarcel-0.1.vfs/modules/configurator-0.1.tm
 
-#### Find out More ####
+### Find out More ###
 To find out more have a look at the [Tarcel Project](/projects/tarcel/) page and the following articles:<br />
   <ul id="briefPosts">
     {% for post in site.posts %}

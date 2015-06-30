@@ -38,20 +38,20 @@ h2 small,h3 small {
   font-size: 80%;
 }
 
-h3 a {
+h2 a, h3 a {
   color: black;
   text-decoration: none;
 }
 
-h3 a:visited {
+h2 a:visited, h3 a:visited {
   color: black;
 }
 
-h3 a:visited small {
+h2 a:visited small, h3 a:visited small {
   color: gray;
 }
 
-h3 a:hover {
+h2 a:hover, h3 a:hover {
   text-decoration: underline;
 }
 

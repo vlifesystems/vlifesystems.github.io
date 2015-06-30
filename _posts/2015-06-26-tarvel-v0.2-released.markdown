@@ -9,7 +9,7 @@ author:
 ---
 This is a minor update that makes two main changes: i) A comment header is now added to the start of a _tarcel_ to state that it is a tarcel and what version of Tarcel it was created with.  ii) Within a _.tarcel_ file you can now add a version requirement to `get packageLoadCommands`.
 
-#### The Comment Header ####
+### The Comment Header ###
 The new header at the start of a _tarcel_ looks like the following:
 
     #########################################################
@@ -18,7 +18,7 @@ The new header at the start of a _tarcel_ looks like the following:
     #   http://vlifesystems.com/projects/tarcel/
     #########################################################
 
-#### Version Requirements for `get packageLoadCommands` ####
+### Version Requirements for `get packageLoadCommands` ###
 The new usage for the `get packageLoadCommands` is:
 
 <dl>
