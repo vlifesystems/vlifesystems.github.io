@@ -33,6 +33,7 @@ set loadCommands [get packageLoadCommands Tclx 8.3-8.5]
 lassign $loadCommands loadCommand version
 set outputFilename "Tclx-$version.tm"
 set baseDir "Tclx-$version.vfs"
+set filesLibDir [file join $baseDir tclx$version]
 
 
 if {[regexp {^load[^;]+$} $loadCommand]} {
@@ -41,7 +42,7 @@ if {[regexp {^load[^;]+$} $loadCommand]} {
   set tclxFilenames [glob -tails -directory $libDirname *.so *.tcl]
 
   foreach filename $tclxFilenames {
-    fetch $baseDir \
+    fetch $filesLibDir \
           [file join $libDirname $filename]
   }
 } else {
@@ -49,11 +50,12 @@ if {[regexp {^load[^;]+$} $loadCommand]} {
 }
 
 set initScript {
-  lappend auto_path @outputFilename
-  load [file join @baseDir @libTailFilename] Tclx
+  lappend auto_path [file normalize @baseDir]
+  load [file join @filesLibDir @libTailFilename] Tclx
 }
 
 config set init [string map [list @baseDir $baseDir \
+                                  @filesLibDir $filesLibDir \
                                   @libTailFilename [file tail $libFilename]] \
                             $initScript]
 
