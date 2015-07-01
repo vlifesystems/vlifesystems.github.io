@@ -3,6 +3,7 @@ layout: article
 title: "configurator v0.2 Released"
 tags:
   - configurator
+  - Tcl/Tk
 author:
   name: Lawrence Woodman
   url: /profile/lawrencewoodman/

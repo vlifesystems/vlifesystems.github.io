@@ -3,6 +3,7 @@ layout: article
 title: "AppDirs v0.2 Released for Tcl"
 tags:
   - AppDirs_tcl
+  - Tcl/Tk
 author:
   name: Lawrence Woodman
   url: /profile/lawrencewoodman/

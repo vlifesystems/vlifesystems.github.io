@@ -3,6 +3,7 @@ layout: article
 title: "Tarcel v0.3 Released"
 tags:
   - Tarcel
+  - Tcl/Tk
 author:
   name: Lawrence Woodman
   url: /profile/lawrencewoodman/

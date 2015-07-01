@@ -3,6 +3,7 @@ layout: article
 title: "Turning Multiple Files into a Module Using Tarcel"
 tags:
   - Tarcel
+  - Tcl/Tk
 author:
   name: Lawrence Woodman
   url: /profile/lawrencewoodman/
