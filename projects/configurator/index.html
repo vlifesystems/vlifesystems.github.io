@@ -9,7 +9,7 @@ projectLink: /projects/configurator
 <div class="leftColumn23rd">
 
   <h2>configurator <small>A Configuration Parsing Module for Tcl</small></h2>
-  This module provides a simple way to parse a configuration script and create a dictionary from it.  The configuration script is a valid Tcl script where the commands are used to set keys within the returned configuration dictionary.
+  This module provides a simple way to parse a configuration script and create a dictionary from it.  The configuration script is a valid Tcl script where the commands are used to set keys within the returned configuration dictionary.  The script is parsed using a safe interpreter.
 
  <h3>Module Usage</h3>
  If you don't pass the <code>-keys</code> option then any command that isn't recognised, is taken to be a command that sets a key with the same name to the single value given as an argument to it.
