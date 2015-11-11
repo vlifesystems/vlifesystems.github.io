@@ -1,0 +1,19 @@
+---
+layout: default
+menuOption: archive
+---
+{% for site_tag_posts in site.tags %}
+{% capture site_tag %}{{ site_tag_posts | first }}{% endcapture %}
+  <div id="tag-{{site_tag | downcase | slugify }}">
+    <h2>{{ site_tag }}</h2>
+    <ul class="posts">
+      {% for post in site.posts %}
+        {% if post.tags contains site_tag %}
+          <li>
+            {% include post_summary.html %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}

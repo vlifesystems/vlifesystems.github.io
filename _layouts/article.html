@@ -29,7 +29,7 @@ layout: post
       <br />
       Tags:
       {% for tag in page.tags %}
-        <a rel="tag" href="/tag/{{ tag|tag_dir }}">{{ tag }}</a> &nbsp; &nbsp;
+        <a href="/articles/archive/#tag-{{ tag | downcase | slugify }}">{{ tag }}</a> &nbsp; &nbsp;
       {% endfor %}
     </span>
 

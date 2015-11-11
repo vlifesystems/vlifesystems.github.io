@@ -43,8 +43,12 @@
 			<a class="menuItemUnselected" href="/articles">Articles</a>
 			{% endif %}
 
-      {% if page.menuOption == 'taggedArticles' %}
-      &gt; <a class="menuItemSelected" href="/tag/{{ page.tag|tag_dir }}">{{page.tag}}</a>
+			&nbsp; | &nbsp;
+
+      {% if page.menuOption == "archive" %}
+        <a class="menuItemSelected" href="/articles/archive/">Archive</a>
+      {% else %}
+        <a class="menuItemUnSelected" href="/articles/archive/">Archive</a>
       {% endif %}
 			&nbsp; | &nbsp;
 
