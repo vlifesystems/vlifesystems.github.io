@@ -17,53 +17,9 @@
 	<body>
 		<h1 id="pageTitle">vLife Systems</h1>
 		<h2 id="pageSubTitle">Quality Through Design</h2>
-		<div id="topMenu">
-		<!-- Menu Begin -->
-			&nbsp;
-			{% if page.menuOption == 'home' %}
-			<a class="menuItemSelected" href="/">Home</a>
-			{% else %}
-			<a class="menuItemUnselected" href="/">Home</a>
-			{% endif %}
-			&nbsp; | &nbsp;
-			{% if page.menuOption == 'projects' and page.project == null %}
-			<a class="menuItemSelected" href="/projects">Projects</a>
-			{% else %}
-			<a class="menuItemUnselected" href="/projects">Projects</a>
-			{% endif %}
-
-      {% if page.project and page.projectLink %}
-      &gt; <a class="menuItemSelected" href="{{ page.projectLink }}">{{page.project}}</a>
-      {% endif %}
-			&nbsp; | &nbsp;
-
-			{% if page.menuOption == 'articles' %}
-			<a class="menuItemSelected" href="/articles">Articles</a>
-			{% else %}
-			<a class="menuItemUnselected" href="/articles">Articles</a>
-			{% endif %}
-
-			&nbsp; | &nbsp;
-
-      {% if page.menuOption == "archive" %}
-        <a class="menuItemSelected" href="/articles/archive/">Archive</a>
-      {% else %}
-        <a class="menuItemUnSelected" href="/articles/archive/">Archive</a>
-      {% endif %}
-			&nbsp; | &nbsp;
-
-			{% if page.menuOption == 'profile' %}
-			<a class="menuItemSelected" href=".">Profile</a>
-			{% endif %}
-
-			{% if page.menuOption == 'statInfo' %}
-			<a class="menuItemSelected" href="/statinfo.html">Statutory Information</a>
-			{% endif %}
-		<!-- Menu End -->
-		</div>
-
+		
 		<div id="content">
-			{{content}}
+			<strong>26th July 2023</strong>vLife Systems has ceased trading and will be dissolved in three months from this date.
 		</div>
 
 		<div id="footer">
